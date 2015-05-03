@@ -1,0 +1,34 @@
+<div class="jumbotron">
+  <h1>Kjersti og Markus sin *nye* trenings-konkurranse!</h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-5" style="text-align: right">
+    <h2 class="<%= case ahead?(participant_1, participant_2) do 
+      true -> "text-success" 
+      _    -> "text-danger" end %>"><%= participant_1.name %></h2>
+    <h1 class="big"><%= participant_1.current %></h1>
+    <h3>(av <%= participant_1.goal %>)</h3>
+    <blockquote class="blockquote-reverse">
+      <p>"Yeah! You work out"</p>
+      <footer>Treneren</footer>
+    </blockquote>                   
+  </div>
+  
+  <div class="col-xs-2" style="text-align: center">
+    <h2>&nbsp;</h2>
+    <h1 class="big">:</h1>
+  </div>
+
+  <div class="col-xs-5">
+    <h2 class="<%= case ahead?(participant_2, participant_1) do 
+      true -> "text-success" 
+      _    -> "text-danger" end %>"><%= participant_2.name %></h2>
+    <h1 class="big"><%= participant_2.current %></h1>
+    <h3>(av <%= participant_2.goal %>)</h3>
+    <blockquote>
+      <p>"De muskler kommer (snart)!"</p>
+      <footer>Treneren</footer>
+    </blockquote>                   
+  </div>
+</div>
