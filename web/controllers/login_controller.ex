@@ -9,13 +9,13 @@ defmodule ElixirTrening.LoginController do
     Logger.debug(email <> " " <> password)
     case {email, password} do
       {"t@t.at", "test"} -> 
-        put_session(conn, :email, email) |> redirect(to: "/")
+        put_session(conn, :user, email) |> redirect(to: "/")
       _ -> raise "unauthoried" 
     end
   end
 
   def logout(conn, _param) do 
-    delete_session(conn, :email) |> redirect(to: "/")
+    delete_session(conn, :user) |> redirect(to: "/")
   end
 
   def login(conn, _params) do
