@@ -1,0 +1,23 @@
+<div class="row" style="margin-top:15px;">
+  <div class="col-xs-12" style="text-align:center">         
+    <div class="form-group">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Dag</th>
+            <th>Beskrivelse</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for training <- @trainings do %>
+          <tr>  
+            <td><%= training.inserted_at %></td>
+            <td><%= training.description %></td>
+          </tr>   
+          <% end %>
+        </tbody>
+      </table>        
+    </div>          
+  </div>
+</div>  
+ 

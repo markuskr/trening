@@ -31,4 +31,12 @@
       <footer>Treneren</footer>
     </blockquote>                   
   </div>
+
+  <div class="col-xs-12">
+    <%= if @authenticated do %>
+      <%= render "weight_button.html" %> 
+      <%= render "add_training.html" %> 
+      <%= render "all_trainings.html", trainings: @trainings %>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,13 @@
+<form class="form-horizontal" action="/training/create" method="post">
+  <input type="hidden" name="_csrf_token" value="<%= csrf_token %>">
+  <label for="description" class="col-xs-2 control-label">Beskrivelse:</label>
+  <div class="col-xs-10">
+    <input type="input" class="form-control" id="description" name="description" />
+  </div>
+  <div class="col-xs-12" style="padding-top:5px; text-align:right">
+    <button type="submit" class="btn btn-lg btn-success"> 
+      <i class="glyphicon glyphicon-plus"></i> Lagre en til
+      </button>
+    </div> 
+  </div>
+</form>

@@ -8,10 +8,6 @@ defmodule ElixirTrening.Router do
     plug :protect_from_forgery
   end
 
-  pipeline :api do
-    plug :accepts, ["json"]
-  end
-
   scope "/", ElixirTrening do
     pipe_through :browser # Use the default browser stack
 
@@ -19,11 +15,15 @@ defmodule ElixirTrening.Router do
     get "/login", LoginController, :login
     get "/logout", LoginController, :logout
     post "/authenticate", LoginController, :authenticate
-    get "/weight", WeightController, :weight
-  end
+    #get "/weight", WeightController, :weight
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ElixirTrening do
-  #   pipe_through :api
-  # end
+    get "/training", TrainingController, :index
+    post "/training/create", TrainingController, :create
+
+    get "/weight", WeightController, :index
+    post "/weight/create", WeightController, :create
+
+    #resources "/weight", WeightController
+    #resources "/training", TrainingController 
+  end
 end

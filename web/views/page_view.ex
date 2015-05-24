@@ -1,8 +1,13 @@
 defmodule ElixirTrening.PageView do
   use ElixirTrening.Web, :view
+  alias ElixirTrening.Training
 
   defmodule Participant do
     defstruct name: "", goal: 30, current: 0 
+  end
+ 
+  def csrf_token do
+    Plug.CSRFProtection.get_csrf_token
   end
 
   @spec participant_1() :: Participant
