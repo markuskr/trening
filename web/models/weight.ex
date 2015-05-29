@@ -3,7 +3,7 @@ defmodule ElixirTrening.Weight do
 
   schema "weight" do
     field :user, :string
-    field :weight, :float
+    field :weight, :float 
     timestamps
   end
 

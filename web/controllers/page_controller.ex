@@ -7,9 +7,6 @@ defmodule ElixirTrening.PageController do
   plug :action
   
   def index(conn, params) do
-
-    Logger.debug inspect is_authenticated?(conn)
-
     case is_authenticated?(conn) do
       {:ok, user} -> 
         trainings = Repo.all(from t in Training, where: t.user == ^user, select: t)

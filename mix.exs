@@ -18,7 +18,7 @@ defmodule ElixirTrening.Mixfile do
   def application do
     [mod: {ElixirTrening, []},
      applications: [:phoenix, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :oauth2]]
   end
 
   # Specifies which paths to compile per environment
@@ -33,6 +33,7 @@ defmodule ElixirTrening.Mixfile do
      {:phoenix_ecto, "~> 0.3"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_live_reload, "~> 0.3"},
+     {:oauth2,  ">= 0.1.0"},
      {:cowboy, "~> 1.0"}]
   end
 end

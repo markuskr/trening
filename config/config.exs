@@ -19,6 +19,18 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :oauth2,  ElixirTrening.Google, 
+  client_id: "GOOGLE_CLIENT_ID",
+  client_secret: "GOOGLE_CLIENT_SECRET"
+
+config :elixir_trening, ElixirTrening.Participant1,
+  email: "EMAIL_1",
+  name: "NAME_1"
+
+config :elixir_trening, ElixirTrening.Participant2,
+  email: "EMAIL_1",
+  name: "NAME_2"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

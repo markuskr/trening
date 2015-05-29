@@ -36,6 +36,6 @@ config :elixir_trening, ElixirTrening.Repo,
   username: "postgres",
   password: "postgres",
   database: "elixir_trening_dev",
-  hostname: "192.168.59.103"
+  hostname: "192.168.59.104"
 
 import_config "dev.secret.exs"

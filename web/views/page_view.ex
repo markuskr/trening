@@ -12,12 +12,12 @@ defmodule ElixirTrening.PageView do
 
   @spec participant_1() :: Participant
   def participant_1 do
-    %Participant{name: "Kjersti", goal: 40, current: 10}
+    %Participant{name: Application.get_env(:elixir_trening, ElixirTrening.Participant1)[:name], goal: 40, current: 10}
   end
 
   @spec participant_2() :: Participant
   def participant_2 do
-    %Participant{name: "Markus", goal: 30, current: 20}
+    %Participant{name: Application.get_env(:elixir_trening, ElixirTrening.Participant2)[:name], goal: 40, current: 11}
   end
   
   @spec ahead?(Participant, Participant) :: boolean

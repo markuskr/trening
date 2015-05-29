@@ -1,7 +1,7 @@
-<form class="form-horizontal" action="/training/create" method="post">
+<form class="form-horizontal" action="/training/workout/create" method="post">
   <input type="hidden" name="_csrf_token" value="<%= csrf_token %>">
-  <label for="description" class="col-xs-2 control-label">Beskrivelse:</label>
-  <div class="col-xs-10">
+  <label for="description" class="col-xs-3 control-label" style:"text-alignment:right">Beskrivelse:</label>
+  <div class="col-xs-9">
     <input type="input" class="form-control" id="description" name="description" />
   </div>
   <div class="col-xs-12" style="padding-top:5px; text-align:right">

@@ -15,17 +15,17 @@ defmodule ElixirTrening.TrainingController do
          conn
        _ ->
          Logger.debug "unauthorized"
-         conn |> redirect(to: "/") |> halt
+         conn |> redirect(to: "/training/") |> halt
      end
   end
   
   def index(conn, _params) do
-    training = Repo.all(from t in Training, where: t.user == "t@t.at", select: t)
+    training = Repo.all(from t in Training, where: t.user == ^current_user(conn), select: t)
     render(conn, "index.html", training: training)
   end
 
   def create(conn, %{"description" => description}) do
-    training_params = %{:description => description, :user => "t@t.at", :version => 1}
+    training_params = %{:description => description, :user => current_user(conn), :version => 1}
 
     changeset = Training.changeset(%Training{}, training_params)
     Logger.debug (inspect changeset.params) 

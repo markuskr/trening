@@ -8,8 +8,8 @@
     <meta name="author" content="">
 
     <title>Kjersti og Markus sin *nye* trenings-konkurranse!</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/login.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/training/css/app.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/training/css/login.css") %>">
     
   </head>
 
@@ -33,6 +33,6 @@
       <%= @inner %>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="<%= static_path(@conn, "/training/js/app.js") %>"></script>
   </body>
 </html>
