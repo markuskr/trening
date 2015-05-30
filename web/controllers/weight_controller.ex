@@ -22,7 +22,11 @@ defmodule ElixirTraining.WeightController do
   end
 
   def index(conn, _params) do
-    weight = Repo.all(from w in Weight, where: w.user == ^current_user(conn), select: w)
+    weight = Repo.all(
+      from w in Weight, 
+      where: w.user == ^current_user(conn), 
+      order_by: [desc: w.inserted_at], 
+      select: w)
     render(conn, "index.html", weight: weight, authenticated: :true, current_user: current_user(conn))
   end
 

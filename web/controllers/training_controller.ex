@@ -25,7 +25,8 @@ defmodule ElixirTraining.TrainingController do
   end
 
   def create(conn, %{"description" => description}) do
-    training_params = %{:description => description, :user => current_user(conn), :version => 1}
+    current_round = Application.get_env(:elixir_training, ElixirTraining.Round)[:current]
+    training_params = %{:description => description, :user => current_user(conn), :version => current_round}
 
     changeset = Training.changeset(%Training{}, training_params)
     Logger.debug (inspect changeset.params) 

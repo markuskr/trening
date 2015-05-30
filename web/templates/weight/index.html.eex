@@ -7,7 +7,7 @@
     <footer>Trainer</footer>
   </blockquote>
 </div>
-<canvas id="chart" width="700px"></canvas>
+<canvas id="chart" width="700px" height="500px"></canvas>
 
 <table class="table table-bordered">
   <thead>
@@ -55,71 +55,70 @@
 <script src="<%= static_path(@conn, "/js/Chart.js") %>"></script>
 <script type="text/javascript">
   var data = {
-labels: [
-          <%= for weight <- @weight do %>
-            '<%= weight.inserted_at %>',
-          <% end %> 
-        ],
-      datasets: [
-      {
-label: "Weight",
-       fillColor: "rgba(220,220,220,0.2)",
-       strokeColor: "rgba(220,220,220,1)",
-       pointColor: "rgba(220,220,220,1)",
-       pointStrokeColor: "#fff",
-       pointHighlightFill: "#fff",
-       pointHighlightStroke: "rgba(220,220,220,1)",
-       data: [
+    labels: [
+      <%= for weight <- @weight do %>
+        '<%= weight.inserted_at %>',
+      <% end %> 
+    ],
+    datasets: [
+    {
+      label: "Weight",
+      fillColor: "rgba(220,220,220,0.2)",
+      strokeColor: "rgba(220,220,220,1)",
+      pointColor: "rgba(220,220,220,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(220,220,220,1)",
+      data: [
          <%= for weight <- @weight do %>
            <%= weight.weight %>,
          <% end %> 
-       ]
-      }
-        ]
+      ]
+    }
+    ]
   };
 
 var options = {
+   ///Boolean - Whether grid lines are shown across the chart
+  scaleShowGridLines : true,
 
-  ///Boolean - Whether grid lines are shown across the chart
-scaleShowGridLines : true,
+   //String - Colour of the grid lines
+   scaleGridLineColor : "rgba(0,0,0,.05)",
 
-                     //String - Colour of the grid lines
-                     scaleGridLineColor : "rgba(0,0,0,.05)",
+   //Number - Width of the grid lines
+   scaleGridLineWidth : 1,
 
-                     //Number - Width of the grid lines
-                     scaleGridLineWidth : 1,
+   //Boolean - Whether the line is curved between points
+   bezierCurve : false,
 
-                     //Boolean - Whether the line is curved between points
-                     bezierCurve : false,
+   //Number - Tension of the bezier curve between points
+   bezierCurveTension : 0.4,
 
-                     //Number - Tension of the bezier curve between points
-                     bezierCurveTension : 0.4,
+   //Boolean - Whether to show a dot for each point
+   pointDot : true,
 
-                     //Boolean - Whether to show a dot for each point
-                     pointDot : true,
+   //Number - Radius of each point dot in pixels
+   pointDotRadius : 4,
 
-                     //Number - Radius of each point dot in pixels
-                     pointDotRadius : 4,
+   //Number - Pixel width of point dot stroke
+   pointDotStrokeWidth : 1,
 
-                     //Number - Pixel width of point dot stroke
-                     pointDotStrokeWidth : 1,
+   //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
+   pointHitDetectionRadius : 20,
 
-                     //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-                     pointHitDetectionRadius : 20,
+   //Boolean - Whether to show a stroke for datasets
+   datasetStroke : true,
 
-                     //Boolean - Whether to show a stroke for datasets
-                     datasetStroke : true,
+   //Number - Pixel width of dataset stroke
+   datasetStrokeWidth : 2,
 
-                     //Number - Pixel width of dataset stroke
-                     datasetStrokeWidth : 2,
+   //Boolean - Whether to fill the dataset with a colour
+   datasetFill : true,
 
-                     //Boolean - Whether to fill the dataset with a colour
-                     datasetFill : true,
+   showTooltips: false,
 
-                     showTooltips: false,
-
-                     // Boolean - whether or not the chart should be responsive and resize when the browser does.
-                     responsive: true,
+   // Boolean - whether or not the chart should be responsive and resize when the browser does.
+   responsive: true,
 
 };
 
@@ -130,7 +129,7 @@ window.addEventListener('resize', chart, false);
 
 function resizeCanvas() {
   chart.width = window.innerWidth;
-  chart.height = 300;
+  chart.height = 500;
 }
 
 window.onorientationchange = function () {

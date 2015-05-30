@@ -2,6 +2,7 @@
 /_build
 /priv/static
 /deps
+/test
 /*.ez
 
 # Generate on crash by the VM

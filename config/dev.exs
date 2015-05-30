@@ -8,7 +8,7 @@ use Mix.Config
 # with brunch.io to recompile .js and .css sources.
 config :elixir_training, ElixirTraining.Endpoint,
   http: [port: 4000],
-  url: [host: "localhost", path: "/training"],
+  url: [host: "localhost"],
   debug_errors: true,
   code_reloader: true,
   cache_static_lookup: false,
