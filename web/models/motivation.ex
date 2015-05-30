@@ -1,5 +1,5 @@
-defmodule ElixirTrening.Motivation do
-  use ElixirTrening.Web, :model
+defmodule ElixirTraining.Motivation do
+  use ElixirTraining.Web, :model
 
   schema "motivations" do
     field :content, :string

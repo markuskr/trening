@@ -1,4 +1,4 @@
-defmodule ElixirTrening.Authenticator do
+defmodule ElixirTraining.Authenticator do
   import Plug.Conn 
   require Logger
 

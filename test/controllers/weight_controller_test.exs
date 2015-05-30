@@ -1,7 +1,7 @@
-defmodule ElixirTrening.WeightControllerTest do
-  use ElixirTrening.ConnCase
+defmodule ElixirTraining.WeightControllerTest do
+  use ElixirTraining.ConnCase
 
-  alias ElixirTrening.Weight
+  alias ElixirTraining.Weight
   @valid_params weight: %{user: "some content", weight: "120.5", weight_date: %{day: 17, month: 4, year: 2010}}
   @invalid_params weight: %{}
 

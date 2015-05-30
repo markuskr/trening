@@ -1,5 +1,6 @@
 # Mix artifacts
 /_build
+/priv/static
 /deps
 /*.ez
 

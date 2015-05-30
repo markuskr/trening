@@ -1,10 +1,10 @@
-defmodule ElixirTrening.PageController do
-  use ElixirTrening.Web, :controller
+defmodule ElixirTraining.PageController do
+  use ElixirTraining.Web, :controller
 
   require Logger
-  import ElixirTrening.Authenticator
-  alias ElixirTrening.Training
-  alias ElixirTrening.Motivation
+  import ElixirTraining.Authenticator
+  alias ElixirTraining.Training
+  alias ElixirTraining.Motivation
   plug :action
 
 
@@ -17,7 +17,7 @@ defmodule ElixirTrening.PageController do
     amount_motivations = length(all_motivations)
 
     index = max(round(Float.ceil((current / goal) * amount_motivations)), 1) 
-    Enum.at(all_motivations, index)
+    Enum.at(all_motivations, index - 1)
   end 
   
   def info(participant) do
@@ -28,8 +28,8 @@ defmodule ElixirTrening.PageController do
   end
 
   def index(conn, _params) do
-    participant1 = info(Application.get_env(:elixir_trening, ElixirTrening.Participants)[:participant1]) 
-    participant2 = info(Application.get_env(:elixir_trening, ElixirTrening.Participants)[:participant2]) 
+    participant1 = info(Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant1]) 
+    participant2 = info(Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant2]) 
     
     case is_authenticated?(conn) do
       {:ok, user} -> 
@@ -46,6 +46,7 @@ defmodule ElixirTrening.PageController do
           participant1: participant1, 
           participant2: participant2, 
           authenticated: :false
+
     end 
   end
 end

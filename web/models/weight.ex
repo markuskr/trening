@@ -1,5 +1,5 @@
-defmodule ElixirTrening.Weight do
-  use ElixirTrening.Web, :model
+defmodule ElixirTraining.Weight do
+  use ElixirTraining.Web, :model
 
   schema "weight" do
     field :user, :string

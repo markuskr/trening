@@ -1,4 +1,4 @@
-# ElixirTrening
+# ElixirTraining
 
 To start your new Phoenix application:
 

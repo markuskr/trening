@@ -1,7 +1,7 @@
-defmodule ElixirTrening.TrainingControllerTest do
-  use ElixirTrening.ConnCase
+defmodule ElixirTraining.TrainingControllerTest do
+  use ElixirTraining.ConnCase
 
-  alias ElixirTrening.Training
+  alias ElixirTraining.Training
   @valid_params training: %{description: "some content", training_date: %{day: 17, month: 4, year: 2010}, user: "some content", version: 42}
   @invalid_params training: %{}
 

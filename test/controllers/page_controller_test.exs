@@ -1,5 +1,5 @@
-defmodule ElixirTrening.PageControllerTest do
-  use ElixirTrening.ConnCase
+defmodule ElixirTraining.PageControllerTest do
+  use ElixirTraining.ConnCase
 
   test "GET /" do
     conn = get conn(), "/"

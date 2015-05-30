@@ -1,17 +1,17 @@
-defmodule ElixirTrening.TrainingController do
-  use ElixirTrening.Web, :controller
+defmodule ElixirTraining.TrainingController do
+  use ElixirTraining.Web, :controller
   require Logger
 
-  import ElixirTrening.Authenticator
-  alias ElixirTrening.Training
+  import ElixirTraining.Authenticator
+  alias ElixirTraining.Training
   
   plug :scrub_params, "description" when action in [:create]
   plug :authenticate
   plug :action
 
-  defp authenticate(conn, params) do
+  defp authenticate(conn, _params) do
      case is_authenticated?(conn) do
-       {:ok, user} ->
+       {:ok, _user} ->
          conn
        _ ->
          Logger.debug "unauthorized"

@@ -1,3 +1,3 @@
-defmodule ElixirTrening.LayoutView do
-  use ElixirTrening.Web, :view
+defmodule ElixirTraining.LayoutView do
+  use ElixirTraining.Web, :view
 end

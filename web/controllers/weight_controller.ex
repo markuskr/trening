@@ -1,9 +1,9 @@
-defmodule ElixirTrening.WeightController do
-  use ElixirTrening.Web, :controller
+defmodule ElixirTraining.WeightController do
+  use ElixirTraining.Web, :controller
 
   require Logger
-  import ElixirTrening.Authenticator
-  alias ElixirTrening.Weight
+  import ElixirTraining.Authenticator
+  alias ElixirTraining.Weight
 
   plug :scrub_params, "weight" when action in [:create]
   plug :authenticate
@@ -23,7 +23,7 @@ defmodule ElixirTrening.WeightController do
 
   def index(conn, _params) do
     weight = Repo.all(from w in Weight, where: w.user == ^current_user(conn), select: w)
-    render(conn, "index.html", weight: weight, current_user: current_user(conn))
+    render(conn, "index.html", weight: weight, authenticated: :true, current_user: current_user(conn))
   end
 
   def create(conn, %{"weight" => weight}) do

@@ -1,7 +1,7 @@
-defmodule ElixirTrening.WeightTest do
-  use ElixirTrening.ModelCase
+defmodule ElixirTraining.WeightTest do
+  use ElixirTraining.ModelCase
 
-  alias ElixirTrening.Weight
+  alias ElixirTraining.Weight
 
   @valid_attrs %{user: "some content", weight: "120.5", weight_date: %{day: 17, month: 4, year: 2010}}
   @invalid_attrs %{}

@@ -1,5 +1,5 @@
-defmodule ElixirTrening.WeightView do
-  use ElixirTrening.Web, :view
+defmodule ElixirTraining.WeightView do
+  use ElixirTraining.Web, :view
 
   def csrf_token do
     Plug.CSRFProtection.get_csrf_token

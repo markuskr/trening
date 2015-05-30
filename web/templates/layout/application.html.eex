@@ -17,7 +17,7 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills">
-          <%= if @current_user do %>
+          <%= if @authenticated do %>
             <li class="pull-right"><a href="<%= login_path @conn, :logout %>">Logout <%= @current_user %></a></li>
           <%= else %>
             <li class="pull-right"><a href="<%= login_path @conn, :login %>">Login</a></li>

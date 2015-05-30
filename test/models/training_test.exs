@@ -1,7 +1,7 @@
-defmodule ElixirTrening.TrainingTest do
-  use ElixirTrening.ModelCase
+defmodule ElixirTraining.TrainingTest do
+  use ElixirTraining.ModelCase
 
-  alias ElixirTrening.Training
+  alias ElixirTraining.Training
 
   @valid_attrs %{description: "some content", training_date: %{day: 17, month: 4, year: 2010}, user: "some content", version: 42}
   @invalid_attrs %{}

@@ -1,12 +1,12 @@
-defmodule ElixirTrening.Endpoint do
-  use Phoenix.Endpoint, otp_app: :elixir_trening
+defmodule ElixirTraining.Endpoint do
+  use Phoenix.Endpoint, otp_app: :elixir_training
 
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :elixir_trening, gzip: false,
+    at: "/", from: :elixir_training, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -28,8 +28,8 @@ defmodule ElixirTrening.Endpoint do
 
   plug Plug.Session,
     store: :cookie,
-    key: "trening",
+    key: "training",
     signing_salt: "E6CaGSE5"
 
-  plug :router, ElixirTrening.Router
+  plug :router, ElixirTraining.Router
 end

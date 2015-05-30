@@ -1,4 +1,4 @@
-defmodule ElixirTrening.ConnCase do
+defmodule ElixirTraining.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -21,21 +21,21 @@ defmodule ElixirTrening.ConnCase do
       use Phoenix.ConnTest
 
       # Alias the data repository and import query/model functions
-      alias ElixirTrening.Repo
+      alias ElixirTraining.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
       # Import URL helpers from the router
-      import ElixirTrening.Router.Helpers
+      import ElixirTraining.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint ElixirTrening.Endpoint
+      @endpoint ElixirTraining.Endpoint
     end
   end
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(ElixirTrening.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(ElixirTraining.Repo, [])
     end
 
     :ok

@@ -1,4 +1,4 @@
-defmodule ElixirTrening.ModelCase do
+defmodule ElixirTraining.ModelCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -14,7 +14,7 @@ defmodule ElixirTrening.ModelCase do
   using do
     quote do
       # Alias the data repository and import query/model functions
-      alias ElixirTrening.Repo
+      alias ElixirTraining.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
     end
@@ -22,7 +22,7 @@ defmodule ElixirTrening.ModelCase do
 
   setup tags do
     unless tags[:async] do
-      Ecto.Adapters.SQL.restart_test_transaction(ElixirTrening.Repo, [])
+      Ecto.Adapters.SQL.restart_test_transaction(ElixirTraining.Repo, [])
     end
 
     :ok

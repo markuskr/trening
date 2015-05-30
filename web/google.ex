@@ -11,8 +11,8 @@ defmodule Google do
 
     OAuth2.new([
       strategy: __MODULE__,
-      client_id: Application.get_env(:oauth2,ElixirTrening.Google)[:client_id],
-      client_secret: Application.get_env(:oauth2,ElixirTrening.Google)[:client_secret],
+      client_id: Application.get_env(:oauth2,ElixirTraining.Google)[:client_id],
+      client_secret: Application.get_env(:oauth2,ElixirTraining.Google)[:client_secret],
       redirect_uri: "https://alpenfjord.ddns.net/training/auth/callback",
       # Lazy: should call 
       # https://accounts.google.com/.well-known/openid-configuration first

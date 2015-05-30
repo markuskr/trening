@@ -6,7 +6,7 @@ use Mix.Config
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
-config :elixir_trening, ElixirTrening.Endpoint,
+config :elixir_training, ElixirTraining.Endpoint,
   http: [port: 4000],
   url: [host: "localhost", path: "/training"],
   debug_errors: true,
@@ -14,12 +14,12 @@ config :elixir_trening, ElixirTrening.Endpoint,
   cache_static_lookup: false,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch"]]
 
-config :elixir_trening, ElixirTrening.Router,
+config :elixir_training, ElixirTraining.Router,
   session: [store: :cookie,
             key: "_your_app_key"]
   
 # Watch static and templates for browser reloading.
-config :elixir_trening, ElixirTrening.Endpoint,
+config :elixir_training, ElixirTraining.Endpoint,
   live_reload: [
     patterns: [
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif)$},
@@ -32,11 +32,11 @@ config :elixir_trening, ElixirTrening.Endpoint,
 config :logger, :console, format: "[$level] $message\n"
 
 # Configure your database
-config :elixir_trening, ElixirTrening.Repo,
+config :elixir_training, ElixirTraining.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "elixir_trening_dev",
+  database: "elixir_training_dev",
   hostname: "192.168.59.104"
 
 import_config "dev.secret.exs"

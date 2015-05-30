@@ -1,8 +1,8 @@
-defmodule ElixirTrening.Mixfile do
+defmodule ElixirTraining.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :elixir_trening,
+    [app: :elixir_training,
      version: "0.0.1",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
@@ -16,9 +16,9 @@ defmodule ElixirTrening.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [mod: {ElixirTrening, []},
+    [mod: {ElixirTraining, []},
      applications: [:phoenix, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :oauth2]]
+                    :phoenix_ecto, :phoenix_html, :postgrex, :oauth2]]
   end
 
   # Specifies which paths to compile per environment
@@ -29,11 +29,12 @@ defmodule ElixirTrening.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.12"},
-     {:phoenix_ecto, "~> 0.3"},
+    [{:phoenix, "~> 0.13"},
+     {:phoenix_ecto, "~> 0.4"},
      {:postgrex, ">= 0.0.0"},
-     {:phoenix_live_reload, "~> 0.3"},
-     {:oauth2,  ">= 0.1.0"},
+     {:phoenix_html, "~> 1.0"},
+     {:phoenix_live_reload, "~> 0.4"},
+     {:oauth2, github: "scrogson/oauth2"},
      {:cowboy, "~> 1.0"}]
   end
 end

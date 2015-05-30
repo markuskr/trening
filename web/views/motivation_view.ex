@@ -1,3 +1,3 @@
-defmodule ElixirTrening.MotivationView do
-  use ElixirTrening.Web, :view
+defmodule ElixirTraining.MotivationView do
+  use ElixirTraining.Web, :view
 end

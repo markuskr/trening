@@ -1,5 +1,5 @@
-defmodule ElixirTrening.Training do
-  use ElixirTrening.Web, :model
+defmodule ElixirTraining.Training do
+  use ElixirTraining.Web, :model
 
   schema "training" do
     field :user, :string

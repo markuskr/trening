@@ -1,5 +1,5 @@
-defmodule ElixirTrening.ErrorView do
-  use ElixirTrening.Web, :view
+defmodule ElixirTraining.ErrorView do
+  use ElixirTraining.Web, :view
 
   def render("404.html", _assigns) do
     "Page not found"

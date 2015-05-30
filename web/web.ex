@@ -1,12 +1,12 @@
-defmodule ElixirTrening.Web do
+defmodule ElixirTraining.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use ElixirTrening.Web, :controller
-      use ElixirTrening.Web, :view
+      use ElixirTraining.Web, :controller
+      use ElixirTraining.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -27,12 +27,12 @@ defmodule ElixirTrening.Web do
       use Phoenix.Controller
 
       # Alias the data repository and import query/model functions
-      alias ElixirTrening.Repo
+      alias ElixirTraining.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 
       # Import URL helpers from the router
-      import ElixirTrening.Router.Helpers
+      import ElixirTraining.Router.Helpers
     end
   end
 
@@ -44,7 +44,7 @@ defmodule ElixirTrening.Web do
       import Phoenix.Controller, only: [get_flash: 2, view_module: 1]
 
       # Import URL helpers from the router
-      import ElixirTrening.Router.Helpers
+      import ElixirTraining.Router.Helpers
 
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
@@ -62,7 +62,7 @@ defmodule ElixirTrening.Web do
       use Phoenix.Channel
 
       # Alias the data repository and import query/model functions
-      alias ElixirTrening.Repo
+      alias ElixirTraining.Repo
       import Ecto.Model
       import Ecto.Query, only: [from: 2]
 

@@ -1,5 +1,5 @@
-defmodule ElixirTrening.LoginController do
-  use ElixirTrening.Web, :controller
+defmodule ElixirTraining.LoginController do
+  use ElixirTraining.Web, :controller
 
   require Logger
 
@@ -10,8 +10,8 @@ defmodule ElixirTrening.LoginController do
     Logger.debug inspect token
     userinfo = OAuth2.AccessToken.get!(token, "/userinfo")
    
-    participant1 = Application.get_env(:elixir_trening, ElixirTrening.Participant1)[:email] 
-    participant2 = Application.get_env(:elixir_trening, ElixirTrening.Participant2)[:email] 
+    participant1 = Application.get_env(:elixir_training, ElixirTraining.Participant1)[:email] 
+    participant2 = Application.get_env(:elixir_training, ElixirTraining.Participant2)[:email] 
 
     case userinfo do 
       %{"email" => email} when 

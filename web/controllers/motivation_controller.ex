@@ -1,8 +1,8 @@
-defmodule ElixirTrening.MotivationController do
-  use ElixirTrening.Web, :controller
+defmodule ElixirTraining.MotivationController do
+  use ElixirTraining.Web, :controller
 
-  alias ElixirTrening.Motivation
-  import ElixirTrening.Authenticator
+  alias ElixirTraining.Motivation
+  import ElixirTraining.Authenticator
 
   require Logger
 
@@ -11,13 +11,13 @@ defmodule ElixirTrening.MotivationController do
   plug :authenticate
   plug :action
 
-  defp authenticate(conn, params) do
+  defp authenticate(conn, _params) do
      case is_authenticated?(conn) do
-       {:ok, user} ->
+       {:ok, _user} ->
          conn
        _ ->
          Logger.debug "unauthorized"
-         conn |> redirect(to: "/training/") |> halt
+         conn |> redirect(to: page_path(conn, :index)) |> halt
      end
   end
 
