@@ -20,7 +20,7 @@
     <%= for weight <- @weight do %>
       <tr>
         <td><%= weight.inserted_at %></td>
-        <td><%= weight.weight %> kg </td>
+        <td><%= Float.round(weight.weight,2) %> kg </td>
       </tr>
     <% end %> 
   </tbody>
