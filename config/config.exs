@@ -7,7 +7,7 @@ use Mix.Config
 
 # Configures the endpoint
 config :elixir_trening, ElixirTrening.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "localhost", path: "/training/"],
   root: Path.expand("..", __DIR__),
   secret_key_base: "0/knuxm97Cjq894dyIt6lblRLGP3uo6YTZ9Su4iFkdOGj2jjpYlHXETvPhrWJiVP",
   debug_errors: false,
@@ -23,13 +23,17 @@ config :oauth2,  ElixirTrening.Google,
   client_id: "GOOGLE_CLIENT_ID",
   client_secret: "GOOGLE_CLIENT_SECRET"
 
-config :elixir_trening, ElixirTrening.Participant1,
-  email: "EMAIL_1",
-  name: "NAME_1"
-
-config :elixir_trening, ElixirTrening.Participant2,
-  email: "EMAIL_1",
-  name: "NAME_2"
+config :elixir_trening, ElixirTrening.Participants,
+  participant1: [ 
+    email: "EMAIL_1",
+    name: "NAME_1",
+    goal: 30
+  ],
+  participant2: [
+    email: "EMAIL_1",
+    name: "NAME_2",
+    goal: 30
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

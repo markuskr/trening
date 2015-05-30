@@ -15,7 +15,7 @@ defmodule ElixirTrening.TrainingController do
          conn
        _ ->
          Logger.debug "unauthorized"
-         conn |> redirect(to: "/training/") |> halt
+         conn |> redirect(to: page_path(conn, :index)) |> halt
      end
   end
   

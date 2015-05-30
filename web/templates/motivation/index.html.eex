@@ -1,0 +1,28 @@
+<h2>Listing motivations</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Priority</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for motivation <- @motivations do %>
+    <tr>
+      <td><%= motivation.content %></td>
+      <td><%= motivation.priority %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: motivation_path(@conn, :show, motivation), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: motivation_path(@conn, :edit, motivation), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: motivation_path(@conn, :delete, motivation), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New motivation", to: motivation_path(@conn, :new) %>

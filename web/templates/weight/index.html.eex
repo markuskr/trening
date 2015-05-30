@@ -12,8 +12,8 @@
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Dag</th>
-      <th>Vekt</th>
+      <th>Day</th>
+      <th>Weight</th>
     </tr>
   </thead>
   <tbody>
@@ -26,11 +26,11 @@
   </tbody>
 </table>
 <div class="col-xs-12">   
-  <form class="form-horizontal" action="/training/weight/create" method="post">
+  <form class="form-horizontal" action="<%= weight_path(@conn, :create) %>" method="post">
     <input type="hidden" name="_csrf_token" value="<%= csrf_token %>">
     <div class="col-xs-7">        
       <div class="form-group">
-        <label for="vekt" class="col-xs-5 control-label label-lg">Dagens vekt:</label>
+        <label for="vekt" class="col-xs-5 control-label label-lg">Todays weight:</label>
         <div class="col-xs-7">
           <input type="number" step="any" class="input-lg form-control" id="weight" name="weight" />
         </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="col-xs-5" style="text-align:left">                
       <button type="submit" class="btn btn-lg btn-success">
-        <i class="glyphicon glyphicon-plus"></i> Lagre
+        <i class="glyphicon glyphicon-plus"></i> Store
       </button>     
     </div>  
   </form>
@@ -46,13 +46,13 @@
     
 <div class="col-xs-12" style="text-align:center">         
   <div class="form-group">
-    <a href="/training" type="submit" class="btn btn-lg btn-success">
-      <i class="glyphicon glyphicon-calendar"></i> Trening 
+    <a href="<%= page_path(@conn, :index)%>" type="submit" class="btn btn-lg btn-success">
+      <i class="glyphicon glyphicon-calendar"></i> Training 
     </a>            
   </div>          
 </div>  
 
-<script src="<%= static_path(@conn, "/training/js/Chart.js") %>"></script>
+<script src="<%= static_path(@conn, "/js/Chart.js") %>"></script>
 <script type="text/javascript">
   var data = {
 labels: [

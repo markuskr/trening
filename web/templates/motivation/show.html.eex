@@ -1,0 +1,17 @@
+<h2>Show motivation</h2>
+
+<ul>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @motivation.content %>
+  </li>
+
+  <li>
+    <strong>Priority:</strong>
+    <%= @motivation.priority %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: motivation_path(@conn, :index) %>

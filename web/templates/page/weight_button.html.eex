@@ -1,8 +1,8 @@
 <div class="row" style="margin-top:15px;">
   <div class="col-xs-12" style="text-align:center">         
     <div class="form-group">
-      <a href="/training/weight" type="submit" class="btn btn-lg btn-success">
-        <i class="glyphicon glyphicon-list"></i> Vekt 
+      <a href="<%= weight_path(@conn, :index) %>" type="submit" class="btn btn-lg btn-success">
+        <i class="glyphicon glyphicon-list"></i> Weight 
       </a>  
     </div>          
   </div>

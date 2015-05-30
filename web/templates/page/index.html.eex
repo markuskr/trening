@@ -1,17 +1,17 @@
 <div class="jumbotron">
-  <h1>Kjersti og Markus sin *nye* trenings-konkurranse!</h1>
+  <h1>Kjersti's and Markus' *new* training challenge!</h1>
 </div>
 
 <div class="row">
   <div class="col-xs-5" style="text-align: right">
-    <h2 class="<%= case ahead?(participant_1, participant_2) do 
+    <h2 class="<%= case ahead?(@participant1, @participant2) do 
       true -> "text-success" 
-      _    -> "text-danger" end %>"><%= participant_1.name %></h2>
-    <h1 class="big"><%= participant_1.current %></h1>
-    <h3>(av <%= participant_1.goal %>)</h3>
+      _    -> "text-danger" end %>"><%= @participant1.name %></h2>
+    <h1 class="big"><%= @participant1.current %></h1>
+    <h3>(of <%= @participant1.goal %>)</h3>
     <blockquote class="blockquote-reverse">
-      <p>"Yeah! You work out"</p>
-      <footer>Treneren</footer>
+      <p>"<%= @participant1.message %>"</p>
+      <footer>Trainer</footer>
     </blockquote>                   
   </div>
   
@@ -21,22 +21,22 @@
   </div>
 
   <div class="col-xs-5">
-    <h2 class="<%= case ahead?(participant_2, participant_1) do 
+    <h2 class="<%= case ahead?(@participant2, @participant1) do 
       true -> "text-success" 
-      _    -> "text-danger" end %>"><%= participant_2.name %></h2>
-    <h1 class="big"><%= participant_2.current %></h1>
-    <h3>(av <%= participant_2.goal %>)</h3>
+      _    -> "text-danger" end %>"><%= @participant2.name %></h2>
+    <h1 class="big"><%= @participant2.current %></h1>
+    <h3>(of <%= @participant2.goal %>)</h3>
     <blockquote>
-      <p>"De muskler kommer (snart)!"</p>
-      <footer>Treneren</footer>
+      <p>"<%= @participant2.message %>"</p>
+      <footer>Trainer</footer>
     </blockquote>                   
   </div>
 
   <div class="col-xs-12">
     <%= if @authenticated do %>
-      <%= render "weight_button.html" %> 
-      <%= render "add_training.html" %> 
-      <%= render "all_trainings.html", trainings: @trainings %>
+      <%= render "weight_button.html", conn: @conn %> 
+      <%= render "add_training.html", conn: @conn %> 
+      <%= render "all_trainings.html", conn: @conn, trainings: @trainings %>
     <% end %>
   </div>
 </div>

@@ -4,8 +4,8 @@
       <table class="table table-bordered">
         <thead>
           <tr>
-            <th>Dag</th>
-            <th>Beskrivelse</th>
+            <th>Day</th>
+            <th>Description</th>
           </tr>
         </thead>
         <tbody>

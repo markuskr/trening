@@ -22,15 +22,15 @@ defmodule ElixirTrening.LoginController do
           |> put_session(:user, email) 
           |> put_session(:access_token, token.access_token)
           |> put_flash(:info, "Successfully logged in") 
-          |> redirect(to: "/training/")  
+          |> redirect(to: page_path(conn, :index))  
       _ -> 
-        conn |> put_flash(:error, "Could not be logged in") |> redirect(to: "/training/")  
+        conn |> put_flash(:error, "Could not be logged in") |> redirect(to: page_path(conn, :index))  
 
     end 
   end
 
   def logout(conn, _param) do 
-    delete_session(conn, :user) |> redirect(to: "/training/")
+    delete_session(conn, :user) |> redirect(to: page_path(conn, :index))
   end
 
   def login(conn, _params) do

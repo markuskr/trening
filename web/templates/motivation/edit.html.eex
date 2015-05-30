@@ -1,0 +1,6 @@
+<h2>Edit motivation</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: motivation_path(@conn, :update, @motivation) %>
+
+<%= link "Back", to: motivation_path(@conn, :index) %>

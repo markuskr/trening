@@ -8,14 +8,13 @@ defmodule ElixirTrening.Router do
     plug :protect_from_forgery
   end
 
-  scope "/training/", ElixirTrening do
+  scope "/", ElixirTrening do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
     get "/login", LoginController, :login
     get "/logout", LoginController, :logout
     post "/authenticate", LoginController, :authenticate
-    #get "/weight", WeightController, :weight
 
     get "/workout", TrainingController, :index
     post "/workout/create", TrainingController, :create
@@ -25,7 +24,6 @@ defmodule ElixirTrening.Router do
 
     get "/auth/callback", LoginController, :callback
 
-    #resources "/weight", WeightController
-    #resources "/training", TrainingController 
+    resources "/motivations", MotivationController
   end
 end

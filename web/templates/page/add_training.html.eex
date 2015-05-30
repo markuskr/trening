@@ -1,12 +1,12 @@
-<form class="form-horizontal" action="/training/workout/create" method="post">
+<form class="form-horizontal" action="<%= training_path(@conn, :create) %>" method="post">
   <input type="hidden" name="_csrf_token" value="<%= csrf_token %>">
-  <label for="description" class="col-xs-3 control-label" style:"text-alignment:right">Beskrivelse:</label>
+  <label for="description" class="col-xs-3 control-label" style:"text-alignment:right">Description:</label>
   <div class="col-xs-9">
     <input type="input" class="form-control" id="description" name="description" />
   </div>
   <div class="col-xs-12" style="padding-top:5px; text-align:right">
     <button type="submit" class="btn btn-lg btn-success"> 
-      <i class="glyphicon glyphicon-plus"></i> Lagre en til
+      <i class="glyphicon glyphicon-plus"></i> Add one training
       </button>
     </div> 
   </div>
