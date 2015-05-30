@@ -38,7 +38,7 @@
     </div>
     <div class="col-xs-5" style="text-align:left">                
       <button type="submit" class="btn btn-lg btn-success">
-        <i class="glyphicon glyphicon-plus"></i> Store
+        <i class="glyphicon glyphicon-plus"></i> Add
       </button>     
     </div>  
   </form>
