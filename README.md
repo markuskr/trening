@@ -1,3 +1,5 @@
+![Screenshot of application](https://github.com/markuskr/trening/blob/master/screenshot.png)
+
 # ElixirTraining
 
 To start your new Phoenix application:
