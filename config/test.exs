@@ -15,7 +15,6 @@ config :elixir_training, ElixirTraining.Repo,
   username: "postgres",
   password: "postgres",
   database: "elixir_training_test",
-  hostname: "192.168.59.104", 
   size: 1,
   max_overflow: 0
 

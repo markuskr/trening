@@ -1,19 +1,23 @@
 defmodule ElixirTraining.LoginController do
+  @moduledoc """
+  Module to authenticate against google using oauth2
+  """
   use ElixirTraining.Web, :controller
-
   require Logger
 
   plug :action
 
   def callback(conn, %{"code" => code}) do
     token = Google.get_token!(code: code)
-    Logger.debug inspect token
     userinfo = OAuth2.AccessToken.get!(token, "/userinfo")
    
-    participant1 = Application.get_env(:elixir_training, ElixirTraining.Participant1)[:email] 
-    participant2 = Application.get_env(:elixir_training, ElixirTraining.Participant2)[:email] 
+    Logger.debug inspect userinfo
+    
+    participant1 = Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant1][:email] 
+    participant2 = Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant2][:email] 
 
     case userinfo do 
+      # Check if user is allowed to use this app
       %{"email" => email} when 
           email == participant1 
        or email == participant2 ->  

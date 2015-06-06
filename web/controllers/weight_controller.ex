@@ -1,4 +1,7 @@
 defmodule ElixirTraining.WeightController do
+  @moduledoc """
+  Displays all the weights a user has stored in the app and allows to add the current weight, user must be logged in.
+  """
   use ElixirTraining.Web, :controller
 
   require Logger
@@ -6,6 +9,8 @@ defmodule ElixirTraining.WeightController do
   alias ElixirTraining.Weight
 
   plug :scrub_params, "weight" when action in [:create]
+  
+  # The order of plugs is important here, first authenticate, then call action handler
   plug :authenticate
   plug :action
 

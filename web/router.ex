@@ -16,7 +16,6 @@ defmodule ElixirTraining.Router do
     get "/logout", LoginController, :logout
     post "/authenticate", LoginController, :authenticate
 
-    get "/workout", TrainingController, :index
     post "/workout/create", TrainingController, :create
 
     get "/weight", WeightController, :index

@@ -1,4 +1,9 @@
 defmodule ElixirTraining.PageController do
+  @moduledoc """
+  Generates startpage. The motivational sentences are shown based on the progress of the participant. If logged in, 
+  the user can add one workout, the app shows a list of workouts for the user or the user can change to the site 
+  for weight.  
+  """
   use ElixirTraining.Web, :controller
 
   require Logger
@@ -6,7 +11,6 @@ defmodule ElixirTraining.PageController do
   alias ElixirTraining.Training
   alias ElixirTraining.Motivation
   plug :action
-
 
   defmodule Participant do
     defstruct name: "", goal: 15, current: 0, message: ""
@@ -23,7 +27,7 @@ defmodule ElixirTraining.PageController do
   def info(participant) do
     [email: email, name: name, goal: goal] = participant
     current_round = Application.get_env(:elixir_training, ElixirTraining.Round)[:current]
-    
+    # version is used to manage the current round. 
     current_amount = Repo.one(from t in Training, where: t.user == ^email and t.version == ^current_round, select: count(t.id))
     message = motivation(goal, current_amount)
     %Participant{name: name, goal: goal, current: current_amount, message: message}
@@ -37,6 +41,7 @@ defmodule ElixirTraining.PageController do
 
     case is_authenticated?(conn) do
       {:ok, user} -> 
+        # When logged in, the last 5 trainings are shown
         trainings = Repo.all(
           from t in Training,
           where: t.user == ^user and t.version == ^current_round, 
@@ -51,6 +56,7 @@ defmodule ElixirTraining.PageController do
           trainings: trainings
       
       {:error, _reason} ->
+        # If not logged in, just the score is shown
         render conn, "index.html", 
           participant1: participant1, 
           participant2: participant2, 

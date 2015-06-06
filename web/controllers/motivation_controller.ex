@@ -1,4 +1,7 @@
 defmodule ElixirTraining.MotivationController do
+  @moduledoc """
+  Generated controller to manipulate motivational sentences, users must be logged in 
+  """
   use ElixirTraining.Web, :controller
 
   alias ElixirTraining.Motivation
@@ -8,6 +11,7 @@ defmodule ElixirTraining.MotivationController do
 
   plug :scrub_params, "motivation" when action in [:create, :update]
 
+  # The order of plugs is important here, first authenticate, then call action handler
   plug :authenticate
   plug :action
 

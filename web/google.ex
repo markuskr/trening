@@ -1,6 +1,6 @@
 defmodule Google do
   @moduledoc """
-  An OAuth2 strategy for Google.
+  An OAuth2 strategy for Google. https://github.com/scrogson/oauth2
   """
   use OAuth2.Strategy
 
@@ -8,12 +8,11 @@ defmodule Google do
   
   # Public API
   def new do
-
     OAuth2.new([
       strategy: __MODULE__,
       client_id: Application.get_env(:oauth2,ElixirTraining.Google)[:client_id],
       client_secret: Application.get_env(:oauth2,ElixirTraining.Google)[:client_secret],
-      redirect_uri: "https://alpenfjord.ddns.net/training/auth/callback",
+      redirect_uri: Application.get_env(:oauth2,ElixirTraining.Google)[:callback_url],
       # Lazy: should call 
       # https://accounts.google.com/.well-known/openid-configuration first
       site: "https://www.googleapis.com/oauth2/v3", 
@@ -33,7 +32,6 @@ defmodule Google do
   end
 
   # Strategy Callbacks
-
   def authorize_url(client, params) do
     AuthCode.authorize_url(client, params )
   end

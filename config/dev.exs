@@ -31,12 +31,12 @@ config :elixir_training, ElixirTraining.Endpoint,
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
 
-# Configure your database
+# TODO: Configure your database
 config :elixir_training, ElixirTraining.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
   database: "elixir_training_dev",
-  hostname: "192.168.59.104"
+  hostname: "ADD HOST HERE"
 
 import_config "dev.secret.exs"

@@ -1,6 +1,5 @@
 defmodule ElixirTraining.PageView do
   use ElixirTraining.Web, :view
-  alias ElixirTraining.Training
  
   def csrf_token do
     Plug.CSRFProtection.get_csrf_token

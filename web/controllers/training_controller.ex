@@ -1,4 +1,7 @@
 defmodule ElixirTraining.TrainingController do
+  @moduledoc """
+  Stores an added training, user needs to be authenticated to add a training
+  """
   use ElixirTraining.Web, :controller
   require Logger
 
@@ -6,6 +9,8 @@ defmodule ElixirTraining.TrainingController do
   alias ElixirTraining.Training
   
   plug :scrub_params, "description" when action in [:create]
+
+  # The order of plugs is important here, first authenticate, then call action handler
   plug :authenticate
   plug :action
 
@@ -19,11 +24,6 @@ defmodule ElixirTraining.TrainingController do
      end
   end
   
-  def index(conn, _params) do
-    training = Repo.all(from t in Training, where: t.user == ^current_user(conn), select: t)
-    render(conn, "index.html", training: training)
-  end
-
   def create(conn, %{"description" => description}) do
     current_round = Application.get_env(:elixir_training, ElixirTraining.Round)[:current]
     training_params = %{:description => description, :user => current_user(conn), :version => current_round}

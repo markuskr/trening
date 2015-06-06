@@ -1,4 +1,8 @@
 defmodule ElixirTraining.Authenticator do
+  @moduledoc """
+  Module to check if an user is logged in. Currently the emaip adresse is stored in the session. 
+  Initally the user is set when the user was authenticated using oauth and the email adress is allowed.
+  """
   import Plug.Conn 
   require Logger
 
