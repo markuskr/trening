@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1>Countdown!</h1>
+</div>
+<div class="row">
+  <div class="col-xs-12" style="text-align: center">
+    <h3><%= @name %>, du har</h3>
+    <h1 style="font-size:60px"><%= @current_amount %></h3>
+    <h3>treninger igjen for å nå målet (<%= @goal %>)</h3>
+    <blockquote>
+      <p><%= @message %></p>
+      <footer>Trainer</footer>
+    </blockquote>
+    <%= render ElixirTraining.PageView, "weight_button.html", conn: @conn %>
+    <%= render ElixirTraining.PageView, "training_button.html", conn: @conn %>
+  </div>
+</div>
