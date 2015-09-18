@@ -31,5 +31,5 @@ defmodule ElixirTraining.Endpoint do
     key: "training",
     signing_salt: "E6CaGSE5"
 
-  plug :router, ElixirTraining.Router
+  plug ElixirTraining.Router
 end

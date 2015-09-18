@@ -5,8 +5,6 @@ defmodule ElixirTraining.LoginController do
   use ElixirTraining.Web, :controller
   require Logger
 
-  plug :action
-
   def callback(conn, %{"code" => code}) do
     token = Google.get_token!(code: code)
     userinfo = OAuth2.AccessToken.get!(token, "/userinfo")

@@ -13,7 +13,6 @@ defmodule ElixirTraining.MotivationController do
 
   # The order of plugs is important here, first authenticate, then call action handler
   plug :authenticate
-  plug :action
 
   defp authenticate(conn, _params) do
      case is_authenticated?(conn) do

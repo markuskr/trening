@@ -43,14 +43,7 @@
     </div>  
   </form>
 </div>
-    
-<div class="col-xs-12" style="text-align:center">         
-  <div class="form-group">
-    <a href="<%= page_path(@conn, :index)%>" type="submit" class="btn btn-lg btn-success">
-      <i class="glyphicon glyphicon-calendar"></i> Training 
-    </a>            
-  </div>          
-</div>  
+<%= render ElixirTraining.PageView, "training_button.html", conn: @conn %> 
 
 <script src="<%= static_path(@conn, "/js/Chart.js") %>"></script>
 <script type="text/javascript">

@@ -10,7 +10,6 @@ defmodule ElixirTraining.PageController do
   import ElixirTraining.Authenticator
   alias ElixirTraining.Training
   alias ElixirTraining.Motivation
-  plug :action
 
   defmodule Participant do
     defstruct name: "", goal: 15, current: 0, message: ""
@@ -18,12 +17,28 @@ defmodule ElixirTraining.PageController do
 
   def motivation(goal, current) do
     all_motivations = Repo.all(from m in Motivation, order_by: m.priority, select: m.content)
-    amount_motivations = length(all_motivations)
+    # The last motivation is for one of the partipants won
+    if current >= goal  do
+      Enum.at(all_motivations, length(all_motivations) - 1)
+    else 
+      amount_motivations = length(all_motivations) - 1
+      index = max(round(Float.ceil((current / goal) * amount_motivations)), 1) 
+      Enum.at(all_motivations, index - 1)
+    end 
 
-    index = max(round(Float.ceil((current / goal) * amount_motivations)), 1) 
-    Enum.at(all_motivations, index - 1)
   end 
-  
+ 
+  def info_per_email(email) do
+    participant1 = Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant1] 
+    participant2 = Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant2] 
+
+    cond do 
+      participant1[:email] == email -> info(participant1)
+      participant2[:email] == email -> info(participant2)
+    end  
+   
+  end
+
   def info(participant) do
     [email: email, name: name, goal: goal] = participant
     current_round = Application.get_env(:elixir_training, ElixirTraining.Round)[:current]
@@ -34,6 +49,7 @@ defmodule ElixirTraining.PageController do
   end
 
   def index(conn, _params) do
+  
     participant1 = info(Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant1]) 
     participant2 = info(Application.get_env(:elixir_training, ElixirTraining.Participants)[:participant2]) 
 

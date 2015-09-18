@@ -13,6 +13,7 @@ defmodule ElixirTraining.Router do
 
     get "/", PageController, :index
     get "/login", LoginController, :login
+    get "/countdown", CountdownController, :countdown
     get "/logout", LoginController, :logout
     post "/authenticate", LoginController, :authenticate
 

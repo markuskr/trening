@@ -12,7 +12,6 @@ defmodule ElixirTraining.TrainingController do
 
   # The order of plugs is important here, first authenticate, then call action handler
   plug :authenticate
-  plug :action
 
   defp authenticate(conn, _params) do
      case is_authenticated?(conn) do
@@ -28,6 +27,9 @@ defmodule ElixirTraining.TrainingController do
     current_round = Application.get_env(:elixir_training, ElixirTraining.Round)[:current]
     training_params = %{:description => description, :user => current_user(conn), :version => current_round}
 
+    Logger.info ("insert .... ")
+
+    Logger.debug (inspect training_params)
     changeset = Training.changeset(%Training{}, training_params)
     Logger.debug (inspect changeset.params) 
     if changeset.valid? do
