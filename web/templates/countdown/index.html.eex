@@ -6,6 +6,8 @@
     <h3><%= @name %>, du har</h3>
     <h1 style="font-size:60px"><%= @current_amount %></h3>
     <h3>treninger igjen for å nå målet (<%= @goal %>)</h3>
+    <h1 style="font-size:55px"><%= @difference %></h1>
+    <h3>dag(er) til <%= @target_date %></h3> 
     <blockquote>
       <p><%= @message %></p>
       <footer>Trainer</footer>
