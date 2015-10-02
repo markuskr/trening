@@ -18,7 +18,7 @@ defmodule ElixirTraining.Mixfile do
   def application do
     [mod: {ElixirTraining, []},
      applications: [:phoenix, :cowboy, :logger,
-                    :phoenix_ecto, :phoenix_html, :postgrex, :oauth2]]
+                    :phoenix_ecto, :phoenix_html, :postgrex, :oauth2, :calendar]]
   end
 
   # Specifies which paths to compile per environment
@@ -35,6 +35,7 @@ defmodule ElixirTraining.Mixfile do
      {:phoenix_html, "~> 2.2.0"},
      {:phoenix_live_reload, "~> 1.0"},
      {:oauth2, "~> 0.3"},
+     {:calendar, "~> 0.10.1"},
      {:cowboy, "~> 1.0"}]
   end
 end

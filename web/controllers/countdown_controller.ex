@@ -8,7 +8,7 @@ defmodule ElixirTraining.CountdownController do
   alias ElixirTraining.PageController
 
   require Logger
-
+  require Calendar
 
   # The order of plugs is important here, first authenticate, then call action handler
   plug :authenticate
@@ -26,14 +26,19 @@ defmodule ElixirTraining.CountdownController do
 
 
   def countdown(conn, _params) do
+    today = Calendar.DateTime.to_date(Calendar.DateTime.now! "Europe/Oslo")
+    target_date = Calendar.Date.from_erl! {2015,12,15}
     current_user = current_user(conn)
     user_info = PageController.info_per_email(current_user)
+    {:ok, target_date_string} =  Calendar.Strftime.strftime(target_date, "%d.%m.%Y")
     render(conn, "index.html", 
         authenticated: :true, 
         current_user: current_user,
         name: user_info.name, 
         current_amount: user_info.goal - user_info.current,
         message: user_info.message,
-        goal: user_info.goal)
+        goal: user_info.goal,
+        target_date: target_date_string,
+        difference: Calendar.Date.diff(target_date, today))
   end
 end
