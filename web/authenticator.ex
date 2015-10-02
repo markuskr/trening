@@ -11,8 +11,7 @@ defmodule ElixirTraining.Authenticator do
     if user do 
       {:ok, user}
     else 
-      {:ok, "mkrallinger@gmail.com"}
-      #{:error, "not logged in"}
+      {:error, "not logged in"}
     end 
   end
 
