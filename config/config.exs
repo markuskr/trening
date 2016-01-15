@@ -26,7 +26,7 @@ config :oauth2,  ElixirTraining.Google,
   callback_url: "<mydomain>/auth/callback"
 
 config :elixir_training, ElixirTraining.Round,
-  current: 2
+  current: 3
 
 # TODO: Set name of participants, email field is used to authenticate users 
 config :elixir_training, ElixirTraining.Participants,
