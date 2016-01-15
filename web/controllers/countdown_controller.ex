@@ -27,7 +27,7 @@ defmodule ElixirTraining.CountdownController do
 
   def countdown(conn, _params) do
     today = Calendar.DateTime.to_date(Calendar.DateTime.now! "Europe/Oslo")
-    target_date = Calendar.Date.from_erl! {2015,12,15}
+    target_date = Calendar.Date.from_erl! {2016,3,20}
     current_user = current_user(conn)
     user_info = PageController.info_per_email(current_user)
     {:ok, target_date_string} =  Calendar.Strftime.strftime(target_date, "%d.%m.%Y")
