@@ -20,17 +20,17 @@ config :logger, :console,
   metadata: [:request_id]
 
 # TODO: Add your google oauth2 credentials
-config :oauth2,  ElixirTraining.Google, 
+config :oauth2,  ElixirTraining.Google,
   client_id: "GOOGLE_CLIENT_ID",
   client_secret: "GOOGLE_CLIENT_SECRET",
   callback_url: "<mydomain>/auth/callback"
 
 config :elixir_training, ElixirTraining.Round,
-  current: 3
+  current: 5
 
-# TODO: Set name of participants, email field is used to authenticate users 
+# TODO: Set name of participants, email field is used to authenticate users
 config :elixir_training, ElixirTraining.Participants,
-  participant1: [ 
+  participant1: [
     email: "EMAIL_1",
     name: "NAME_1",
     goal: 30

@@ -1,5 +1,6 @@
 defmodule ElixirTraining.Training do
-  use ElixirTraining.Web, :model
+  use Ecto.Schema
+  import Ecto.Changeset
 
   schema "training" do
     field :user, :string
@@ -10,7 +11,6 @@ defmodule ElixirTraining.Training do
   end
 
   @required_fields ~w(user description version)
-  @optional_fields ~w()
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -20,6 +20,6 @@ defmodule ElixirTraining.Training do
   """
   def changeset(model, params \\ nil) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, @required_fields)
   end
 end

@@ -1,5 +1,6 @@
 defmodule ElixirTraining.Motivation do
-  use ElixirTraining.Web, :model
+  use Ecto.Schema
+  import Ecto.Changeset
 
   schema "motivations" do
     field :content, :string

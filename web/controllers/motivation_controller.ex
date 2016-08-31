@@ -1,11 +1,13 @@
 defmodule ElixirTraining.MotivationController do
   @moduledoc """
-  Generated controller to manipulate motivational sentences, users must be logged in 
+  Generated controller to manipulate motivational sentences, users must be logged in
   """
   use ElixirTraining.Web, :controller
 
-  alias ElixirTraining.Motivation
   import ElixirTraining.Authenticator
+  import ElixirTraining.Motivation
+
+  alias ElixirTraining.Motivation
 
   require Logger
 
@@ -26,16 +28,16 @@ defmodule ElixirTraining.MotivationController do
 
   def index(conn, _params) do
     motivations = Repo.all(Motivation)
-    render(conn, "index.html", 
-        authenticated: :true, 
+    render(conn, "index.html",
+        authenticated: :true,
         current_user: current_user(conn),
         motivations: motivations)
   end
 
   def new(conn, _params) do
     changeset = Motivation.changeset(%Motivation{})
-    render(conn, "new.html", 
-        authenticated: :true, 
+    render(conn, "new.html",
+        authenticated: :true,
         current_user: current_user(conn),
         changeset: changeset)
   end
@@ -56,8 +58,8 @@ defmodule ElixirTraining.MotivationController do
 
   def show(conn, %{"id" => id}) do
     motivation = Repo.get(Motivation, id)
-    render(conn, "show.html", 
-        authenticated: :true, 
+    render(conn, "show.html",
+        authenticated: :true,
         current_user: current_user(conn),
         motivation: motivation)
   end
@@ -65,10 +67,10 @@ defmodule ElixirTraining.MotivationController do
   def edit(conn, %{"id" => id}) do
     motivation = Repo.get(Motivation, id)
     changeset = Motivation.changeset(motivation)
-    render(conn, "edit.html", 
-        authenticated: :true, 
+    render(conn, "edit.html",
+        authenticated: :true,
         current_user: current_user(conn),
-        motivation: motivation, 
+        motivation: motivation,
         changeset: changeset)
   end
 
@@ -83,10 +85,10 @@ defmodule ElixirTraining.MotivationController do
       |> put_flash(:info, "Motivation updated successfully.")
       |> redirect(to: motivation_path(conn, :index))
     else
-      render(conn, "edit.html", 
-          authenticated: :true, 
+      render(conn, "edit.html",
+          authenticated: :true,
           current_user: current_user(conn),
-          motivation: motivation, 
+          motivation: motivation,
           changeset: changeset)
     end
   end
