@@ -10,7 +10,7 @@
     <title>Kjersti's and Markus' *new* training challenge!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/login.css") %>">
-    
+
   </head>
 
   <body>
@@ -22,8 +22,8 @@
             <li class="pull-right"><a href="<%= login_path @conn, :logout %>">Logout</a></li>
           <%= else %>
             <li class="pull-right"><a href="<%= login_path @conn, :login %>">Login</a></li>
-          <%= end %> 
-          
+          <%= end %>
+
           <li class="pull-right"><a href="<%= page_path @conn, :index %>">Home</a></li>
         </ul>
       </div>
@@ -31,7 +31,7 @@
       <p class="alert alert-info"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger"><%= get_flash(@conn, :error) %></p>
 
-      <%= @inner %>
+      <%= render @view_module, @view_template, assigns %>
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

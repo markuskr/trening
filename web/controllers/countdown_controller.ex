@@ -1,6 +1,6 @@
 defmodule ElixirTraining.CountdownController do
   @moduledoc """
-  Shows countdown view, users must be logged in 
+  Shows countdown view, users must be logged in
   """
   use ElixirTraining.Web, :controller
 
@@ -27,14 +27,14 @@ defmodule ElixirTraining.CountdownController do
 
   def countdown(conn, _params) do
     today = Calendar.DateTime.to_date(Calendar.DateTime.now! "Europe/Oslo")
-    target_date = Calendar.Date.from_erl! {2016,3,20}
+    target_date = Calendar.Date.from_erl! {2016, 10, 15}
     current_user = current_user(conn)
     user_info = PageController.info_per_email(current_user)
     {:ok, target_date_string} =  Calendar.Strftime.strftime(target_date, "%d.%m.%Y")
-    render(conn, "index.html", 
-        authenticated: :true, 
+    render(conn, "index.html",
+        authenticated: :true,
         current_user: current_user,
-        name: user_info.name, 
+        name: user_info.name,
         current_amount: user_info.goal - user_info.current,
         message: user_info.message,
         goal: user_info.goal,

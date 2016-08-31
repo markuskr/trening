@@ -4,38 +4,38 @@
 
 <div class="row">
   <div class="col-xs-5" style="text-align: right">
-    <h2 class="<%= case ahead?(@participant1, @participant2) do 
-      true -> "text-success" 
+    <h2 class="<%= case ahead?(@participant1, @participant2) do
+      true -> "text-success"
       _    -> "text-danger" end %>"><%= @participant1.name %></h2>
     <h1 class="big"><%= @participant1.current %></h1>
     <h3>(of <%= @participant1.goal %>)</h3>
     <blockquote class="blockquote-reverse">
       <p>"<%= @participant1.message %>"</p>
-      <footer>Trainer</footer>
-    </blockquote>                   
+      <footer>William</footer>
+    </blockquote>
   </div>
-  
+
   <div class="col-xs-2" style="text-align: center">
     <h2>&nbsp;</h2>
     <h1 class="big">:</h1>
   </div>
 
   <div class="col-xs-5">
-    <h2 class="<%= case ahead?(@participant2, @participant1) do 
-      true -> "text-success" 
+    <h2 class="<%= case ahead?(@participant2, @participant1) do
+      true -> "text-success"
       _    -> "text-danger" end %>"><%= @participant2.name %></h2>
     <h1 class="big"><%= @participant2.current %></h1>
     <h3>(of <%= @participant2.goal %>)</h3>
     <blockquote>
       <p>"<%= @participant2.message %>"</p>
-      <footer>Trainer</footer>
-    </blockquote>                   
+      <footer>William</footer>
+    </blockquote>
   </div>
 
   <div class="col-xs-12">
     <%= if @authenticated do %>
-      <%= render "weight_button.html", conn: @conn %> 
-      <%= render "add_training.html", conn: @conn %> 
+      <%= render "weight_button.html", conn: @conn %>
+      <%= render "add_training.html", conn: @conn %>
       <%= render "all_trainings.html", conn: @conn, trainings: @trainings %>
     <% end %>
   </div>
